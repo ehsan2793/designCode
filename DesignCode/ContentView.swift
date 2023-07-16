@@ -11,8 +11,10 @@ struct ContentView: View {
     // MARK: - PROPERTIES
 
     @State private var show = false
-    @State private var viewState = CGSize.zero
     @State private var showCard = false
+    @State private var viewState = CGSize.zero
+    @State private var bottomState = CGSize.zero
+    @State private var showFull = false
 
     // MARK: - BODY
 
@@ -74,19 +76,45 @@ struct ContentView: View {
                         .onChanged { value in
                             viewState = value.translation
                             show = true
+                            showCard = false
                         }
                         .onEnded { _ in
                             viewState = .zero
                             show = false
-
                         }
                 )
+//            Text("\(bottomState.height)")
+//                .offset(y: -300)
 
             BottomCardView()
-                .offset(x: 0, y: showCard ? 560 : 1000)
-                .blur(radius: show ? 20 : 0)
-                .animation(.default, value: showCard)
-                .animation(.timingCurve(0.2, 0.8, 0.2, 1, duration: 0), value: showCard)
+                .offset(x: 0, y: showCard ? 360 : 1000)
+                .offset(y: bottomState.height)
+                .animation(.timingCurve(0.2, 0.8, 0.2, 1, duration: 0.8), value: showCard)
+                .animation(.default, value: showFull)
+                .gesture(
+                    DragGesture()
+                        .onChanged { value in
+                            bottomState = value.translation
+                            if showFull {
+                                bottomState.height += -300
+                            }
+                            if bottomState.height < -300 {
+                                bottomState.height = -300
+                            }
+                        }
+                        .onEnded { _ in
+                            if bottomState.height > 30 {
+                                showCard = false
+                            }
+                            if (bottomState.height < -100 && !showFull) || (bottomState.height < -250 && showFull) {
+                                bottomState.height = -300
+                                showFull = true
+                            } else {
+                                bottomState = .zero
+                                showFull = false
+                            }
+                        }
+                )
         } //: ZSTACK
     }
 }
