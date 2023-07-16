@@ -8,11 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    // MARK: - PROPERTIES
+
+    // MARK: - BODY
+
     var body: some View {
         ZStack {
             TitleView()
                 .blur(radius: 20)
-            
+
             BackCardView() //: VSTACK
                 .background(Color("card4"))
                 .cornerRadius(20)
@@ -32,20 +36,19 @@ struct ContentView: View {
                 .rotationEffect(Angle(degrees: 5))
                 .rotation3DEffect(Angle(degrees: 5), axis: (x: 10, y: 0, z: 0))
                 .blendMode(.hardLight)
-            
+
             CardView()
-            
+
             BottomCardView()
                 .blur(radius: 20)
         } //: ZSTACK
-    
     }
 }
+
+// MARK: - PREVIEW
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
 }
-
-
