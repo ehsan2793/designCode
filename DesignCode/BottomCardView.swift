@@ -27,11 +27,12 @@ struct BottomCardView: View {
         }
         .padding(.top, 8)
         .padding(.horizontal)
-        .frame(maxWidth: .infinity)
+        .frame(maxWidth: .infinity,maxHeight: .infinity)
         .background(Color.white)
         .cornerRadius(30)
         .shadow(radius: 20)
         .offset(x: 0, y: 500)
+        .ignoresSafeArea(.all, edges: .bottom)
     }
 }
 

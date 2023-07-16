@@ -32,6 +32,7 @@ struct ContentView: View {
                 .rotationEffect(Angle(degrees: 5))
                 .rotation3DEffect(Angle(degrees: 5), axis: (x: 10, y: 0, z: 0))
                 .blendMode(.hardLight)
+            
             CardView()
             
             BottomCardView()

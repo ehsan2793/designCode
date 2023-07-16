@@ -64,9 +64,9 @@
 				7CFF88512A632F84007A6B14 /* CardView.swift */,
 				7CFF88532A632FDB007A6B14 /* BackCardView.swift */,
 				7CFF88572A635FB6007A6B14 /* BottomCardView.swift */,
+				7CFF88552A635BF9007A6B14 /* TitleView.swift */,
 				7CFF88472A63172F007A6B14 /* Assets.xcassets */,
 				7CFF88492A63172F007A6B14 /* Preview Content */,
-				7CFF88552A635BF9007A6B14 /* TitleView.swift */,
 			);
 			path = DesignCode;
 			sourceTree = "<group>";

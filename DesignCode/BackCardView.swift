@@ -13,13 +13,8 @@ struct BackCardView: View {
     // MARK: - BODY
 
     var body: some View {
-        VStack {
-            Spacer()
-
-           
-        } //: VSTACK
-        .frame(width: 340, height: 220)
-
+        VStack {} //: VSTACK
+            .frame(width: 340, height: 220)
     }
 }
 
