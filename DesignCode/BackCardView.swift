@@ -14,7 +14,6 @@ struct BackCardView: View {
 
     var body: some View {
         VStack {} //: VSTACK
-            .frame(width: 340, height: 220)
     }
 }
 

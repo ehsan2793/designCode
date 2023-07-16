@@ -27,7 +27,7 @@ struct ContentView: View {
                 .animation(
                     Animation.default
                         .delay(0.1),
-                    value: showCard)
+                    value: showCard || show)
 
             BackCardView() //: VSTACK
                 .frame(width: showCard ? 300 : 340, height: 220)
