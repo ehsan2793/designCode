@@ -19,15 +19,15 @@ struct MenuView: View {
                 MenuRow(title: "Account", icon: "gear")
                 MenuRow(title: "Biling", icon: "creditcard")
                 MenuRow(title: "Sign out", icon: "person.crop.circle")
-            }
+            } //: VSTACK
             .frame(maxWidth: .infinity)
             .frame(height: 300)
             .background(Color.white)
             .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
             .shadow(radius: 30)
-        .padding(.horizontal,30)
+            .padding(.horizontal, 30)
         } //: VSTACK
-        .padding(.bottom,30)
+        .padding(.bottom, 30)
     }
 }
 
