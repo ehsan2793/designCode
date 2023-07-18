@@ -38,7 +38,7 @@ struct MenuView: View {
             .frame(height: 300)
 
             .background(
-                LinearGradient(gradient: Gradient(colors: [Color.blue.opacity(0.1),Color.white]), startPoint: .top, endPoint: .bottom)
+                LinearGradient(gradient: Gradient(colors: [Color.blue.opacity(0.5),Color.white.opacity(0.5)]), startPoint: .top, endPoint: .bottom)
             )
             .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
             .shadow(color: Color.black.opacity(0.2), radius: 20, x: 0, y: 20)
