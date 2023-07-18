@@ -18,7 +18,7 @@ struct MenuView: View {
             VStack(spacing: 16) {
                 Text("Ehsan - 28% complete")
                     .font(.caption)
-                
+
                 Color.white
                     .frame(width: 38, height: 6)
                     .cornerRadius(3)
@@ -29,16 +29,15 @@ struct MenuView: View {
                     .frame(width: 150, height: 24)
                     .background(Color.black.opacity(0.1))
                     .cornerRadius(12)
-                
+
                 MenuRow(title: "Account", icon: "gear")
                 MenuRow(title: "Biling", icon: "creditcard")
                 MenuRow(title: "Sign out", icon: "person.crop.circle")
             } //: VSTACK
             .frame(maxWidth: .infinity)
             .frame(height: 300)
-
             .background(
-                LinearGradient(gradient: Gradient(colors: [Color.blue.opacity(0.5),Color.white.opacity(0.5)]), startPoint: .top, endPoint: .bottom)
+                LinearGradient(gradient: Gradient(colors: [Color.blue.opacity(0.5), Color.white.opacity(0.5)]), startPoint: .top, endPoint: .bottom)
             )
             .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
             .shadow(color: Color.black.opacity(0.2), radius: 20, x: 0, y: 20)
@@ -75,7 +74,7 @@ struct MenuRow: View {
                 .imageScale(.large)
                 .frame(width: 32, height: 32)
                 .foregroundColor(Color(red: 0.69, green: 0.75, blue: 0.83))
-            
+
             Text(title)
                 .font(.system(size: 20, weight: .bold, design: .default))
                 .frame(width: 120, alignment: .leading)
