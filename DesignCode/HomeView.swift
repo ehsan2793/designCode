@@ -30,8 +30,8 @@ struct HomeView: View {
 
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 30) {
-                    ForEach(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/) { _ in
-                        SectionView()
+                    ForEach(sectionData) { item in
+                        SectionView(section: item)
                     } //: LOOP
                 } //: HSTACK
                 .padding(30)
@@ -52,31 +52,52 @@ struct HomeView_Previews: PreviewProvider {
 }
 
 struct SectionView: View {
+    // MARK: - PROPERTIES
+
+    @State var section: Section
+
+    // MARK: - BODY
+
     var body: some View {
         VStack {
             HStack(alignment: .top) {
-                Text("Prototype designs in SwiftUI")
+                Text(section.title)
                     .font(.system(size: 24, weight: .bold))
                     .frame(width: 160, alignment: .leading)
                     .foregroundColor(Color.white)
 
                 Spacer()
 
-                Image("Logo1")
+                Image(section.logo)
             } //: HSTACK
 
-            Text("18 Sections".uppercased())
+            Text(section.text.uppercased())
                 .frame(maxWidth: .infinity, alignment: .leading)
 
-            Image("Card1")
+            section.image
                 .resizable()
                 .scaledToFit()
                 .frame(width: 210)
         }
         .padding([.top, .horizontal], 20)
         .frame(width: 275, height: 275)
-        .background(Color("card1"))
+        .background(section.color)
         .cornerRadius(30)
-        .shadow(color: Color("card1").opacity(0.3), radius: 20, x: 0, y: 20)
+        .shadow(color: section.color.opacity(0.3), radius: 20, x: 0, y: 20)
     }
 }
+
+struct Section: Identifiable {
+    var id = UUID()
+    var title: String
+    var text: String
+    var logo: String
+    var image: Image
+    var color: Color
+}
+
+let sectionData: [Section] = [
+    Section(title: "Prototype designs in SwiftUI", text: "18 Sections", logo: "Logo1", image: Image(uiImage: #imageLiteral(resourceName: "Card4")), color: Color(#colorLiteral(red: 0.292, green: 0.081, blue: 0.6, alpha: 255))),
+    Section(title: "Build SwiftUI app", text: "20 Sections", logo: "Logo1", image: Image(uiImage: #imageLiteral(resourceName: "Background1")), color: Color(#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1))),
+    Section(title: "SwiftUI Advance", text: "20 Sections", logo: "Logo1", image: Image(uiImage: #imageLiteral(resourceName: "Card2")), color: Color(#colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1))),
+]
