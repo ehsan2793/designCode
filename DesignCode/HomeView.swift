@@ -11,6 +11,7 @@ struct HomeView: View {
     // MARK: - PROPERTIES
 
     @State private var showProfile = false
+    @State var viewState = CGSize.zero
 
     // MARK: - BODY
 
@@ -43,14 +44,33 @@ struct HomeView: View {
             .clipShape(RoundedRectangle(cornerRadius: 30))
             .shadow(color: Color.black.opacity(0.2), radius: 20, x: 0, y: 20)
             .offset(y: showProfile ? -450 : 0)
-            .rotation3DEffect(Angle(degrees: showProfile ? -10 : 0), axis: (x: 10.0, y: 0, z: 0))
+            .rotation3DEffect(Angle(degrees: showProfile ? Double(viewState.height / 10) - 10 : 0), axis: (x: 10.0, y: 0, z: 0))
             .scaleEffect(showProfile ? 0.9 : 1)
             .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0), value: showProfile)
             .edgesIgnoringSafeArea(.all)
-
+           
             MenuView()
-                .offset(y: showProfile ? 0 : 600)
+                .background(Color.black.opacity(0.0001))
+                .offset(y: showProfile ? 0 : 1000)
+                .offset(y: viewState.height)
                 .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0), value: showProfile)
+                .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0), value: viewState.height < 0)
+                .onTapGesture {
+                    showProfile.toggle()
+                }
+            
+                .gesture(
+                    DragGesture().onChanged { value in
+                        if value.translation.height > -310 {
+                            viewState = value.translation
+                        }
+                    }.onEnded { _ in
+                        if viewState.height > 50 {
+                            showProfile = false
+                        }
+                        viewState = .zero
+                    }
+                )
         } //: ZSTACK
     }
 }
