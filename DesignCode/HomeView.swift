@@ -26,13 +26,7 @@ struct HomeView: View {
 
                     Spacer()
 
-                    Button(action: { showProfile.toggle() }) {
-                        Image("Avatar")
-                            .renderingMode(.original)
-                            .resizable()
-                            .frame(width: 36, height: 36)
-                            .clipShape(Circle())
-                    }
+                    AvatarView(showProfile: $showProfile)
                 } //: HSTACK
                 .padding(.horizontal)
                 .padding(.top, 30)
@@ -80,5 +74,18 @@ struct HomeView: View {
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
         HomeView()
+    }
+}
+
+struct AvatarView: View {
+    @Binding var showProfile: Bool
+    var body: some View {
+        Button(action: { showProfile.toggle() }) {
+            Image("Avatar")
+                .renderingMode(.original)
+                .resizable()
+                .frame(width: 36, height: 36)
+                .clipShape(Circle())
+        }
     }
 }
