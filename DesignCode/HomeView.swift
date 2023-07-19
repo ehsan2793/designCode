@@ -25,15 +25,18 @@ struct HomeView: View {
                 AvatarView(showProfile: $showProfile)
             } //: HSTACK
             .padding(.horizontal)
+            .padding(.leading, 14)
             .padding(.top, 30)
 
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack {
+                HStack(spacing: 30) {
                     ForEach(/*@START_MENU_TOKEN@*/0 ..< 5/*@END_MENU_TOKEN@*/) { _ in
                         SectionView()
-                    }
-                }
-            }
+                    } //: LOOP
+                } //: HSTACK
+                .padding(30)
+                .padding(.bottom, 30)
+            } //: SCROLL
 
             Spacer()
         } //: VSTACK
