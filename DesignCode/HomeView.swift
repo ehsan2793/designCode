@@ -65,7 +65,7 @@ struct SectionView: View {
                     .font(.system(size: 24, weight: .bold))
                     .frame(width: 160, alignment: .leading)
                     .foregroundColor(Color.white)
-
+                Image(uiImage: #imageLiteral(resourceName: "Logo3"))
                 Spacer()
 
                 Image(section.logo)
@@ -73,7 +73,7 @@ struct SectionView: View {
 
             Text(section.text.uppercased())
                 .frame(maxWidth: .infinity, alignment: .leading)
-
+            
             section.image
                 .resizable()
                 .scaledToFit()
@@ -101,3 +101,6 @@ let sectionData: [Section] = [
     Section(title: "Build SwiftUI app", text: "20 Sections", logo: "Logo1", image: Image(uiImage: #imageLiteral(resourceName: "Background1")), color: Color(#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1))),
     Section(title: "SwiftUI Advance", text: "20 Sections", logo: "Logo1", image: Image(uiImage: #imageLiteral(resourceName: "Card2")), color: Color(#colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1))),
 ]
+
+
+
