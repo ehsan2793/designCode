@@ -11,6 +11,7 @@ struct HomeView: View {
     // MARK: - PROPERTIES
 
     @Binding var showProfile: Bool
+    @State private var showupdate = false
 
     // MARK: - BODY
 
@@ -23,15 +24,37 @@ struct HomeView: View {
                 Spacer()
 
                 AvatarView(showProfile: $showProfile)
+                
+                Button {
+                    showupdate.toggle()
+                } label: {
+                    Image(systemName: "bell")
+                        .font(.system(size: 16, weight: .medium))
+                        .foregroundColor(.black)
+                        .frame(width: 36, height: 36)
+                        .background(Color.white)
+                        .clipShape(Circle())
+                        .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
+                        .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
+                }
+                .sheet(isPresented: $showupdate) {
+                    ContentView()
+                }
             } //: HSTACK
             .padding(.horizontal)
             .padding(.leading, 14)
             .padding(.top, 30)
 
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 30) {
+                HStack(spacing: 20) {
                     ForEach(sectionData) { item in
-                        SectionView(section: item)
+                        GeometryReader { geometry in
+                            SectionView(section: item)
+                                .rotation3DEffect(Angle(degrees:
+                                                            Double(geometry.frame(in: .global).minX - 30) / -20
+                                                       ), axis: (x: 0, y: 10, z: 0))
+                        }
+                        .frame(width: 275, height: 275)
                     } //: LOOP
                 } //: HSTACK
                 .padding(30)
@@ -70,10 +93,9 @@ struct SectionView: View {
 
                 Image(section.logo)
             } //: HSTACK
-
             Text(section.text.uppercased())
                 .frame(maxWidth: .infinity, alignment: .leading)
-            
+
             section.image
                 .resizable()
                 .scaledToFit()
@@ -101,6 +123,8 @@ let sectionData: [Section] = [
     Section(title: "Build SwiftUI app", text: "20 Sections", logo: "Logo1", image: Image(uiImage: #imageLiteral(resourceName: "Background1")), color: Color(#colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1))),
     Section(title: "SwiftUI Advance", text: "20 Sections", logo: "Logo1", image: Image(uiImage: #imageLiteral(resourceName: "Card2")), color: Color(#colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1))),
 ]
+
+
 
 
 
