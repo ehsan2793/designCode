@@ -18,7 +18,7 @@ struct UpdateList: View {
                 NavigationLink {
                     Text(update.text)
                 } //: DESTINATION
-            label: {
+                label: {
                     HStack {
                         Image(update.image)
                             .resizable()
@@ -43,10 +43,12 @@ struct UpdateList: View {
                                 .foregroundColor(.secondary)
                         } //: VSTACK
                     } //: HSTACK
-                
+                    .padding(.vertical)
                 } //: LABEL
             } //: LIST
+            .padding(.horizontal, -16)
             .navigationTitle("Updates")
+    
         }
     }
 }
