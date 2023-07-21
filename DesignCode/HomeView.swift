@@ -46,7 +46,7 @@ struct HomeView: View {
             .padding(.top, 30)
 
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 10) {
+                HStack(spacing: -4) {
                     ForEach(sectionData) { item in
                         GeometryReader { geometry in
                             SectionView(section: item)
