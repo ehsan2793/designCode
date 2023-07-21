@@ -48,7 +48,6 @@ struct UpdateList: View {
             } //: LIST
             .padding(.horizontal, -16)
             .navigationTitle("Updates")
-    
         }
     }
 }
