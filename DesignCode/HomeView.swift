@@ -46,10 +46,10 @@ struct HomeView: View {
             .padding(.top, 30)
 
             ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: -4) {
-                    ForEach(sectionData) { item in
+                HStack(spacing: 5) {
+                    ForEach(sectionData) { section in
                         GeometryReader { geometry in
-                            SectionView(section: item)
+                            SectionView(section: section)
                                 .rotation3DEffect(Angle(degrees:
                                     Double(geometry.frame(in: .global).minX - 30) / -20
                                 ), axis: (x: 0, y: 10, z: 0))
@@ -78,6 +78,7 @@ struct SectionView: View {
     // MARK: - PROPERTIES
 
     @State var section: Section
+    @State var Logo3 = #imageLiteral(resourceName: "Logo3")
 
     // MARK: - BODY
 
@@ -88,7 +89,7 @@ struct SectionView: View {
                     .font(.system(size: 24, weight: .bold))
                     .frame(width: 160, alignment: .leading)
                     .foregroundColor(Color.white)
-                Image(uiImage: #imageLiteral(resourceName: "Logo3"))
+                Image(uiImage: Logo3)
                 Spacer()
 
                 Image(section.logo)

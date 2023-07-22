@@ -19,6 +19,7 @@ struct Home: View {
         ZStack {
             Color.gray.opacity(0.5)
                 .edgesIgnoringSafeArea(.all)
+
             HomeView(showProfile: $showProfile)
                 .padding(.top, 44)
                 .background(Color.white)
@@ -29,7 +30,7 @@ struct Home: View {
                 .scaleEffect(showProfile ? 0.9 : 1)
                 .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0), value: showProfile)
                 .edgesIgnoringSafeArea(.all)
-            
+
             MenuView()
                 .background(Color.black.opacity(0.0001))
                 .offset(y: showProfile ? 0 : screen.height)
@@ -39,7 +40,7 @@ struct Home: View {
                 .onTapGesture {
                     showProfile.toggle()
                 }
-            
+
                 .gesture(
                     DragGesture().onChanged { value in
                         if value.translation.height > -310 {
