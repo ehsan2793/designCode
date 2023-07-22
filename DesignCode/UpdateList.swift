@@ -53,8 +53,14 @@ struct UpdateList: View {
                             } //: VSTACK
                         } //: HSTACK
                         .padding(.vertical, 8)
-                    }
-                } //: LABEL
+                    } //: LABEL
+                } //: LOOP
+                .onDelete { index in
+                    store.updates.remove(at: index.first!)
+                }
+                .onMove { (source: IndexSet, destination: Int) in
+                    store.updates.move(fromOffsets: source, toOffset: destination)
+                }
             } //: LIST
             .listStyle(PlainListStyle())
             .navigationTitle("Updates")
@@ -63,6 +69,10 @@ struct UpdateList: View {
                     Button(action: addUpdate) {
                         Text("Add Update")
                     }
+                } //: toolbarItem
+
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    EditButton()
                 } //: toolbarItem
             } //: toolbar
         }
