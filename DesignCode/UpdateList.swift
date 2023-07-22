@@ -10,44 +10,61 @@ import SwiftUI
 struct UpdateList: View {
     // MARK: - PROPERTIES
 
+    @ObservedObject var store = UpdateStore()
+
+    // MARK: - FUNCTION
+
+    func addUpdate() {
+        store.updates.append(Update(image: "Card1", title: "new Item", text: "text", date: "Jan 1"))
+    }
+
     // MARK: - BODY
 
     var body: some View {
         NavigationView {
-            List(updateData) { update in
-                NavigationLink {
-                    UpdateDetail(update: update)
-                } //: DESTINATION
-                label: {
-                    HStack {
-                        Image(update.image)
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 80, height: 80)
-                            .background(Color.black)
-                            .cornerRadius(20)
-                            .padding(.trailing, 4)
+            List {
+                ForEach(store.updates) { update in
+                    NavigationLink {
+                        UpdateDetail(update: update)
+                    } //: DESTINATION
+                    label: {
+                        HStack {
+                            Image(update.image)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 80, height: 80)
+                                .background(Color.black)
+                                .cornerRadius(20)
+                                .padding(.trailing, 4)
 
-                        VStack(alignment: .leading, spacing: 8.0) {
-                            Text(update.title)
-                                .font(.system(size: 20, weight: .bold))
+                            VStack(alignment: .leading, spacing: 8.0) {
+                                Text(update.title)
+                                    .font(.system(size: 20, weight: .bold))
 
-                            Text(update.text)
-                                .lineLimit(2)
-                                .font(.subheadline)
-                                .foregroundColor(Color(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)))
+                                Text(update.text)
+                                    .lineLimit(2)
+                                    .font(.subheadline)
+                                    .foregroundColor(Color(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)))
 
-                            Text(update.date)
-                                .font(.caption)
-                                .fontWeight(.bold)
-                                .foregroundColor(.secondary)
-                        } //: VSTACK
-                    } //: HSTACK
-                    .padding(.vertical)
+                                Text(update.date)
+                                    .font(.caption)
+                                    .fontWeight(.bold)
+                                    .foregroundColor(.secondary)
+                            } //: VSTACK
+                        } //: HSTACK
+                        .padding(.vertical, 8)
+                    }
                 } //: LABEL
             } //: LIST
             .listStyle(PlainListStyle())
             .navigationTitle("Updates")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: addUpdate) {
+                        Text("Add Update")
+                    }
+                } //: toolbarItem
+            } //: toolbar
         }
     }
 }

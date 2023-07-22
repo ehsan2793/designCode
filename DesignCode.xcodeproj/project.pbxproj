@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7C30C5D72A6BC21100F3BA16 /* UpdateDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C30C5D62A6BC21100F3BA16 /* UpdateDetail.swift */; };
+		7C30C5D92A6BCD6300F3BA16 /* UpdateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C30C5D82A6BCD6300F3BA16 /* UpdateStore.swift */; };
 		7C703AEA2A6619BC00218D58 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C703AE92A6619BC00218D58 /* Home.swift */; };
 		7C703AEC2A677B7400218D58 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C703AEB2A677B7400218D58 /* HomeView.swift */; };
 		7C703AEE2A6A2CF900218D58 /* UpdateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C703AED2A6A2CF900218D58 /* UpdateList.swift */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		7C30C5D62A6BC21100F3BA16 /* UpdateDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateDetail.swift; sourceTree = "<group>"; };
+		7C30C5D82A6BCD6300F3BA16 /* UpdateStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateStore.swift; sourceTree = "<group>"; };
 		7C703AE92A6619BC00218D58 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		7C703AEB2A677B7400218D58 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		7C703AED2A6A2CF900218D58 /* UpdateList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateList.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				7C703AEB2A677B7400218D58 /* HomeView.swift */,
 				7C30C5D62A6BC21100F3BA16 /* UpdateDetail.swift */,
 				7C703AED2A6A2CF900218D58 /* UpdateList.swift */,
+				7C30C5D82A6BCD6300F3BA16 /* UpdateStore.swift */,
 				7CFF885A2A64F19B007A6B14 /* Certificate */,
 				7CFF88472A63172F007A6B14 /* Assets.xcassets */,
 				7CFF88492A63172F007A6B14 /* Preview Content */,
@@ -176,6 +179,7 @@
 				7C703AEC2A677B7400218D58 /* HomeView.swift in Sources */,
 				7CFF885C2A64F1D8007A6B14 /* MenuView.swift in Sources */,
 				7CFF88462A63172D007A6B14 /* ContentView.swift in Sources */,
+				7C30C5D92A6BCD6300F3BA16 /* UpdateStore.swift in Sources */,
 				7CFF88582A635FB6007A6B14 /* BottomCardView.swift in Sources */,
 				7C30C5D72A6BC21100F3BA16 /* UpdateDetail.swift in Sources */,
 				7CFF88522A632F84007A6B14 /* CardView.swift in Sources */,
