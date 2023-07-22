@@ -44,7 +44,7 @@ struct UpdateList: View {
                                 Text(update.text)
                                     .lineLimit(2)
                                     .font(.subheadline)
-                                    .foregroundColor(Color(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)))
+                                    .foregroundColor(Color(red: 0.501960814, green: 0.501960814, blue: 0.501960814))
 
                                 Text(update.date)
                                     .font(.caption)
