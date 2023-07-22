@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     // MARK: - PROPERTIES
-    
+
     @State private var show = false
     @State private var showCard = false
     @State private var viewState = CGSize.zero
@@ -87,7 +87,7 @@ struct ContentView: View {
 //                .offset(y: -300)
 
             BottomCardView()
-                .offset(x: 0, y: showCard ? 400 : 1000)
+                .offset(x: 0, y: showCard ? 400 : screen.height)
                 .offset(y: bottomState.height)
                 .animation(.timingCurve(0.2, 0.8, 0.2, 1, duration: 0.8), value: showCard)
                 .animation(.default, value: showFull)
