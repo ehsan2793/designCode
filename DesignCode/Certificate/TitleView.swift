@@ -14,14 +14,11 @@ struct TitleView: View {
 
     var body: some View {
         VStack {
-            HStack {
-                Text("Certificates")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                
-                Spacer()
-            }
-            .padding()
+            Text("Certificates")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding()
             Image("Background1")
                 .resizable()
                 .scaledToFit()
