@@ -16,7 +16,7 @@ struct UpdateList: View {
         NavigationView {
             List(updateData) { update in
                 NavigationLink {
-                    Text(update.text)
+                    UpdateDetail(update: update)
                 } //: DESTINATION
                 label: {
                     HStack {
