@@ -35,7 +35,7 @@ struct UpdateList: View {
                             Text(update.text)
                                 .lineLimit(2)
                                 .font(.subheadline)
-                                .foregroundColor(Color(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)))
+                                .foregroundColor(update.color[0])
 
                             Text(update.date)
                                 .font(.caption)
@@ -46,7 +46,7 @@ struct UpdateList: View {
                     .padding(.vertical)
                 } //: LABEL
             } //: LIST
-            .padding(.horizontal, -16)
+            .listStyle(PlainListStyle())
             .navigationTitle("Updates")
         }
     }
@@ -66,6 +66,7 @@ struct Update: Identifiable {
     var title: String
     var text: String
     var date: String
+    var color: [Color] = [Color(#colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1))]
 }
 
 let updateData: [Update] = [

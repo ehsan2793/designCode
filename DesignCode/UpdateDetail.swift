@@ -5,24 +5,30 @@
 //  Created by Ehsan Rahimi on 7/22/23.
 //
 
-import SwiftUI
 import Foundation
+import SwiftUI
 
 struct UpdateDetail: View {
     // MARK: - PROPERTIES
 
-     var update: Update
+    var update: Update
 
     // MARK: - BODY
 
     var body: some View {
-        VStack {
-            Image(update.image)
-            Text(update.text)
-                .foregroundColor(Color(p[0].color))
-        }
-        .navigationTitle(update.title)
-        
+        List {
+            VStack {
+                Image(update.image)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(maxWidth: .infinity)
+
+                Text(update.text)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            } //: VSTACK
+            .navigationTitle(update.title)
+        } //: LIST
+        .listStyle(PlainListStyle())
     }
 }
 
@@ -30,15 +36,6 @@ struct UpdateDetail: View {
 
 struct UpdateDetail_Previews: PreviewProvider {
     static var previews: some View {
-        NavigationView {
-            UpdateDetail(update: updateData[0])
-        }
+        UpdateDetail(update: updateData[0])
     }
 }
-
-struct Person {
-    var color: UIColor
-}
-
-var p = [Person(color: #colorLiteral(red: 0.292, green: 0.081, blue: 0.6, alpha: 255))]
-

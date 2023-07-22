@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     // MARK: - PROPERTIES
-
+    
     @State private var show = false
     @State private var showCard = false
     @State private var viewState = CGSize.zero
