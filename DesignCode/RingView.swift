@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RingView: View {
     // MARK: - PROPERTIES
-    
+
     var shadowColor: Color = Color(#colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1))
 
     // MARK: - BODY
@@ -19,7 +19,7 @@ struct RingView: View {
             Circle()
                 .stroke(Color.black.opacity(0.1), style: StrokeStyle(lineWidth: 5))
                 .frame(width: 44, height: 44)
-            
+
             Circle()
                 .trim(from: 0.2, to: 1)
                 .stroke(
@@ -30,11 +30,10 @@ struct RingView: View {
                 .rotation3DEffect(Angle(degrees: 180), axis: (x: 1, y: 0, z: 0))
                 .frame(width: 44, height: 44)
                 .shadow(color: shadowColor.opacity(0.1), radius: 3, x: 0, y: 3)
-            
+
             Text("82%")
                 .font(.subheadline)
                 .fontWeight(.bold)
-
         } //: ZSTACK
     }
 }
