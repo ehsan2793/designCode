@@ -11,6 +11,7 @@ struct UpdateList: View {
     // MARK: - PROPERTIES
 
     @ObservedObject var store = UpdateStore()
+    let subheadlineColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
 
     // MARK: - FUNCTION
 
@@ -44,7 +45,7 @@ struct UpdateList: View {
                                 Text(update.text)
                                     .lineLimit(2)
                                     .font(.subheadline)
-                                    .foregroundColor(Color(red: 0.501960814, green: 0.501960814, blue: 0.501960814))
+                                    .foregroundColor(Color(subheadlineColor))
 
                                 Text(update.date)
                                     .font(.caption)
