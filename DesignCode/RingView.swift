@@ -14,13 +14,18 @@ struct RingView: View {
     var color2 = Color(#colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1))
     var width: CGFloat = 88
     var height: CGFloat = 88
-    var percent: CGFloat = 32
+    var percent: CGFloat = 22
+    var multiplier: CGFloat {
+        return width / 44
+    }
+
+    var progress: CGFloat {
+        return 1 - percent / 100
+    }
 
     // MARK: - BODY
 
     var body: some View {
-        let multiplier = width / 44
-        let progress = 1 - percent / 100
         return ZStack {
             Circle()
                 .stroke(Color.black.opacity(0.1), style: StrokeStyle(lineWidth: 5 * multiplier))
