@@ -14,7 +14,7 @@ struct RingView: View {
     var color2 = Color(#colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1))
     var width: CGFloat = 88
     var height: CGFloat = 88
-    var percent: CGFloat = 32
+    var percent: CGFloat = 90
     var multiplier: CGFloat {
         width / 44
     }
@@ -26,7 +26,7 @@ struct RingView: View {
     // MARK: - BODY
 
     var body: some View {
-        return ZStack {
+        ZStack {
             Circle()
                 .stroke(Color.black.opacity(0.1), style: StrokeStyle(lineWidth: 5 * multiplier))
                 .frame(width: width, height: height)
