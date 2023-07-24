@@ -89,7 +89,7 @@ struct ContentView: View {
             BottomCardView(show: $showCard)
                 .offset(x: 0, y: showCard ? 400 : screen.height)
                 .offset(y: bottomState.height)
-                .animation(.timingCurve(0.2, 0.8, 0.2, 1, duration: 0.8), value: showCard)
+                .animation(.timingCurve(0.2, 0.8, 0.2, 1, duration: 1.2), value: showCard)
                 .animation(.default, value: showFull)
                 .gesture(
                     DragGesture()
