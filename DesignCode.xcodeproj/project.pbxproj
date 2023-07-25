@@ -12,6 +12,7 @@
 		7C703AEA2A6619BC00218D58 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C703AE92A6619BC00218D58 /* Home.swift */; };
 		7C703AEC2A677B7400218D58 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C703AEB2A677B7400218D58 /* HomeView.swift */; };
 		7C703AEE2A6A2CF900218D58 /* UpdateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C703AED2A6A2CF900218D58 /* UpdateList.swift */; };
+		7C7264D42A6F661E0094AA7A /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7264D32A6F661E0094AA7A /* Modifiers.swift */; };
 		7CC7E95C2A6C47B400CCE1B4 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC7E95B2A6C47B400CCE1B4 /* TabBar.swift */; };
 		7CDC9A2B2A6C88DE00FE4988 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDC9A2A2A6C88DE00FE4988 /* Utils.swift */; };
 		7CDC9A2D2A6D08C600FE4988 /* RingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDC9A2C2A6D08C600FE4988 /* RingView.swift */; };
@@ -32,6 +33,7 @@
 		7C703AE92A6619BC00218D58 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		7C703AEB2A677B7400218D58 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		7C703AED2A6A2CF900218D58 /* UpdateList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateList.swift; sourceTree = "<group>"; };
+		7C7264D32A6F661E0094AA7A /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		7CC7E95B2A6C47B400CCE1B4 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		7CDC9A2A2A6C88DE00FE4988 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		7CDC9A2C2A6D08C600FE4988 /* RingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingView.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 				7C703AE92A6619BC00218D58 /* Home.swift */,
 				7C703AEB2A677B7400218D58 /* HomeView.swift */,
 				7CDC9A2C2A6D08C600FE4988 /* RingView.swift */,
+				7C7264D32A6F661E0094AA7A /* Modifiers.swift */,
 				7C30C5D62A6BC21100F3BA16 /* UpdateDetail.swift */,
 				7C703AED2A6A2CF900218D58 /* UpdateList.swift */,
 				7C30C5D82A6BCD6300F3BA16 /* UpdateStore.swift */,
@@ -196,6 +199,7 @@
 				7CFF88522A632F84007A6B14 /* CardView.swift in Sources */,
 				7CFF88442A63172D007A6B14 /* DesignCodeApp.swift in Sources */,
 				7CC7E95C2A6C47B400CCE1B4 /* TabBar.swift in Sources */,
+				7C7264D42A6F661E0094AA7A /* Modifiers.swift in Sources */,
 				7C703AEA2A6619BC00218D58 /* Home.swift in Sources */,
 				7CFF88542A632FDB007A6B14 /* BackCardView.swift in Sources */,
 				7CFF88562A635BF9007A6B14 /* TitleView.swift in Sources */,

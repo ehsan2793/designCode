@@ -14,7 +14,7 @@ struct RingView: View {
     var color2 = Color(#colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1))
     var width: CGFloat = 300
     var height: CGFloat = 300
-    var percent: CGFloat = 78
+    var percent: CGFloat = 32
     var multiplier: CGFloat {
         width / 44
     }

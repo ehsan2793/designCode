@@ -28,7 +28,7 @@ struct BottomCardView: View {
                 .lineSpacing(4)
 
             HStack(spacing: 20.0) {
-                RingView(color1: color1, color2: color2, width: 88, height: 88, percent: 78, show: $show)
+                RingView(color1: color1, color2: color2, width: 88, height: 88, percent: 43, show: $show)
                 
                 VStack(alignment: .leading, spacing: 8) {
                     Text("SwiftUI")
