@@ -82,10 +82,10 @@ struct HomeView: View {
                     Spacer()
                 }
                 .padding(.leading, 30)
-                .offset(y: -60)
+                .offset(y: -80)
 
                 SectionView(section: sectionData[2], width: screen.width - 60, height: 275)
-                    .offset(y: -60)
+                    .offset(y: -90)
 
                 Spacer()
             }
