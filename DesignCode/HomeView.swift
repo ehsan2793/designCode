@@ -21,7 +21,8 @@ struct HomeView: View {
         VStack {
             HStack {
                 Text("Watching")
-                    .font(.system(size: 28, weight: .bold))
+//                    .font(.system(size: 28, weight: .bold))
+                    .modifier(CustomFontModifier(size: 28))
 
                 Spacer()
 
@@ -51,6 +52,7 @@ struct HomeView: View {
                 RingView(color1: color1, color2: color2, width: 44, height: 44, percent: 32, show: .constant(true))
                 VStack(alignment: .leading, spacing: 4.0) {
                     Text("6 minutes left")
+                        .bold()
                         .modifier(FontModifier(style: .subheadline))
                     Text("Watched 10 minutes today")
                         .modifier(FontModifier(style: .caption))
