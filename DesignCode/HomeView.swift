@@ -12,6 +12,7 @@ struct HomeView: View {
 
     @Binding var showProfile: Bool
     @State private var showupdate = false
+    @Binding var showContent: Bool
 
     // MARK: - BODY
 
@@ -50,6 +51,9 @@ struct HomeView: View {
                 WatchRingsView()
                     .padding(.horizontal, 30)
                     .padding(.bottom, 30)
+                    .onTapGesture {
+                        showContent = true
+                    }
             } //: SCROLL
 
             ScrollView(.horizontal, showsIndicators: false) {
@@ -77,7 +81,7 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(showProfile: .constant(true))
+        HomeView(showProfile: .constant(true) , showContent: .constant(true))
     }
 }
 

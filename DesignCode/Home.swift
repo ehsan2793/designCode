@@ -11,6 +11,7 @@ struct Home: View {
     // MARK: - PROPERTIES
 
     @State private var showProfile = false
+    @State private var showContent = false
     @State var viewState = CGSize.zero
 
     // MARK: - BODY
@@ -20,9 +21,16 @@ struct Home: View {
             Color.gray.opacity(0.5)
                 .edgesIgnoringSafeArea(.all)
 
-            HomeView(showProfile: $showProfile)
+            HomeView(showProfile: $showProfile, showContent: $showContent)
                 .padding(.top, 44)
-                .background(Color.white)
+                .background(
+                    VStack {
+                        LinearGradient(gradient: Gradient(colors: [Color("background2"), Color.white]), startPoint: .top, endPoint: .bottom )
+                            .frame(height: 200)
+                        Spacer()
+                    }
+                        .background(Color.white)
+                )
                 .clipShape(RoundedRectangle(cornerRadius: 30))
                 .shadow(color: Color.black.opacity(0.2), radius: 20, x: 0, y: 20)
                 .offset(y: showProfile ? -450 : 0)
@@ -53,6 +61,22 @@ struct Home: View {
                         viewState = .zero
                     }
                 )
+            if showContent {
+                Color.white.edgesIgnoringSafeArea(.all)
+                ContentView()
+                Image(systemName: "xmark")
+                    .frame(width: 36, height: 36)
+                    .foregroundColor(.white)
+                    .background(Color.black)
+                    .clipShape(Circle())
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
+                    .padding()
+                    .transition(.move(edge: .top))
+                    .animation(.spring(response: 0.6, dampingFraction: 0.8, blendDuration: 0), value: showContent)
+                    .onTapGesture {
+                        showContent = false
+                    }
+            }
         } //: ZSTACK
     }
 }
