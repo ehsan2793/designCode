@@ -17,62 +17,78 @@ struct HomeView: View {
     // MARK: - BODY
 
     var body: some View {
-        VStack {
-            HStack {
-                Text("Watching")
-//                    .font(.system(size: 28, weight: .bold))
-                    .modifier(CustomFontModifier(size: 28))
+        ScrollView {
+            VStack {
+                HStack {
+                    Text("Watching")
+                        //                    .font(.system(size: 28, weight: .bold))
+                        .modifier(CustomFontModifier(size: 28))
+
+                    Spacer()
+
+                    AvatarView(showProfile: $showProfile)
+
+                    Button {
+                        showupdate.toggle()
+                    } label: {
+                        Image(systemName: "bell")
+                            .font(.system(size: 16, weight: .medium))
+                            .foregroundColor(.black)
+                            .frame(width: 36, height: 36)
+                            .background(Color.white)
+                            .clipShape(Circle())
+                            .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
+                            .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
+                    }
+                    .sheet(isPresented: $showupdate) {
+                        UpdateList()
+                    }
+                } //: HSTACK
+                .padding(.horizontal)
+                .padding(.leading, 14)
+                .padding(.top, 30)
+
+                ScrollView(.horizontal, showsIndicators: false) {
+                    WatchRingsView()
+                        .padding(.horizontal, 30)
+                        .padding(.bottom, 30)
+                        .onTapGesture {
+                            showContent = true
+                        }
+                } //: SCROLL
+
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 5) {
+                        ForEach(sectionData) { section in
+                            GeometryReader { geometry in
+                                SectionView(section: section)
+                                    .rotation3DEffect(Angle(degrees:
+                                        Double(geometry.frame(in: .global).minX - 30) / -20
+                                    ), axis: (x: 0, y: 10, z: 0))
+                            }
+                            .frame(width: 275, height: 275)
+                        } //: LOOP
+                    } //: HSTACK
+                    .padding(30)
+                    .padding(.bottom, 30)
+                } //: SCROLL
+                .offset(y: -30)
+
+                HStack {
+                    Text("Courses")
+                        .font(.title)
+                        .bold()
+
+                    Spacer()
+                }
+                .padding(.leading, 30)
+                .offset(y: -60)
+
+                SectionView(section: sectionData[2], width: screen.width - 60, height: 275)
+                    .offset(y: -60)
 
                 Spacer()
-
-                AvatarView(showProfile: $showProfile)
-
-                Button {
-                    showupdate.toggle()
-                } label: {
-                    Image(systemName: "bell")
-                        .font(.system(size: 16, weight: .medium))
-                        .foregroundColor(.black)
-                        .frame(width: 36, height: 36)
-                        .background(Color.white)
-                        .clipShape(Circle())
-                        .shadow(color: Color.black.opacity(0.1), radius: 1, x: 0, y: 1)
-                        .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
-                }
-                .sheet(isPresented: $showupdate) {
-                    UpdateList()
-                }
-            } //: HSTACK
-            .padding(.horizontal)
-            .padding(.leading, 14)
-            .padding(.top, 30)
-
-            ScrollView(.horizontal, showsIndicators: false) {
-                WatchRingsView()
-                    .padding(.horizontal, 30)
-                    .padding(.bottom, 30)
-                    .onTapGesture {
-                        showContent = true
-                    }
-            } //: SCROLL
-
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 5) {
-                    ForEach(sectionData) { section in
-                        GeometryReader { geometry in
-                            SectionView(section: section)
-                                .rotation3DEffect(Angle(degrees:
-                                    Double(geometry.frame(in: .global).minX - 30) / -20
-                                ), axis: (x: 0, y: 10, z: 0))
-                        }
-                        .frame(width: 275, height: 275)
-                    } //: LOOP
-                } //: HSTACK
-                .padding(30)
-                .padding(.bottom, 30)
-            } //: SCROLL
-            .offset(y: -30)
-            Spacer()
+            }
         } //: VSTACK
     }
 }
@@ -81,7 +97,7 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(showProfile: .constant(true) , showContent: .constant(true))
+        HomeView(showProfile: .constant(true), showContent: .constant(true))
     }
 }
 
@@ -89,7 +105,9 @@ struct SectionView: View {
     // MARK: - PROPERTIES
 
     @State var section: Section
-    @State var Logo3 = #imageLiteral(resourceName: "Logo3")
+    @State var Logo3: UIImage = #imageLiteral(resourceName: "Logo3")
+    var width: CGFloat = 275
+    var height: CGFloat = 275
 
     // MARK: - BODY
 
@@ -100,7 +118,7 @@ struct SectionView: View {
                     .font(.system(size: 24, weight: .bold))
                     .frame(width: 160, alignment: .leading)
                     .foregroundColor(Color.white)
-                Image(uiImage: Logo3)
+//                Image(uiImage: Logo3)
                 Spacer()
 
                 Image(section.logo)
@@ -112,9 +130,9 @@ struct SectionView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 210)
-        }
+        } //: VSTACK
         .padding([.top, .horizontal], 20)
-        .frame(width: 275, height: 275)
+        .frame(width: width, height: height)
         .background(section.color)
         .cornerRadius(30)
         .shadow(color: section.color.opacity(0.3), radius: 20, x: 0, y: 20)
