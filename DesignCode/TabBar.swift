@@ -24,7 +24,6 @@ struct TabBar: View {
                     Image(systemName: "rectangle.stack.fill")
                     Text("Certificates")
                 }
-            
         }
         .edgesIgnoringSafeArea(.top)
     }
@@ -38,7 +37,6 @@ struct TabBar_Previews: PreviewProvider {
             TabBar()
             TabBar()
                 .previewDevice("iPhone SE (3rd generation)")
-                
         }
     }
 }
