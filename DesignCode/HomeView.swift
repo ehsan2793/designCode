@@ -67,7 +67,7 @@ struct HomeView: View {
                 .padding(30)
                 .padding(.bottom, 30)
             } //: SCROLL
-
+            .offset(y: -30)
             Spacer()
         } //: VSTACK
     }
