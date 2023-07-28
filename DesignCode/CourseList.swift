@@ -15,7 +15,7 @@ struct CourseList: View {
     // MARK: - BODY
 
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             VStack(spacing: 30.0) {
                 Text("Courses")
                     .font(.largeTitle)
