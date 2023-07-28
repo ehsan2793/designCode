@@ -13,8 +13,16 @@ struct CourseList: View {
     // MARK: - BODY
 
     var body: some View {
-        VStack {
-            CourseView()
+        ScrollView {
+            VStack(spacing: 30.0) {
+                CourseView()
+                GeometryReader { geometry in
+                    CourseView()
+                }
+                .frame(height: 280)
+                .frame(maxWidth: .infinity)
+            }
+            .frame(width: screen.width)
         }
     }
 }
@@ -102,7 +110,8 @@ struct CourseView: View {
                 show.toggle()
             }
         }
-        .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0), value: show)
+//        .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0), value: show)
+        .animation(.easeInOut(duration: 0.6), value: show)
         .ignoresSafeArea(.all)
     }
 }
