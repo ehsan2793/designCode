@@ -17,12 +17,17 @@ struct CourseList: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 30.0) {
+                Text("Courses")
+                    .font(.largeTitle)
+                    .bold()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding([.leading, .top], 10)
                 ForEach(courses.indices, id: \.self) { index in
                     GeometryReader { gemomatry in
                         CourseView(show: $courses[index].show, course: courses[index])
                             .offset(y: courses[index].show ? -gemomatry.frame(in: .global).minY : 0)
                     }
-                    .frame(height: courses[index].show ? screen.height : 280)
+                    .frame(height: 280)
                     .frame(maxWidth: courses[index].show ? .infinity : screen.width - 60)
                     .animation(.easeInOut(duration: 0.6), value: courses[index].show)
                 }
@@ -45,8 +50,6 @@ struct CourseView: View {
 
     @Binding var show: Bool
     var course: Course
-    var backgroundColor = Color(#colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1))
-    var shadowColor = Color(#colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1))
 
     // MARK: - BODY
 
@@ -116,6 +119,7 @@ struct CourseView: View {
                 show.toggle()
             }
         }
+        .frame(height: show ? screen.height : 280)
 //        .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0), value: show)
         .animation(.easeInOut(duration: 0.6), value: show)
         .ignoresSafeArea(.all)
