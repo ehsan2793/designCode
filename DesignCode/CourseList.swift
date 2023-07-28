@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CourseList: View {
     // MARK: - PROPERTIES
+
     @State var courses = courseData
 
     // MARK: - BODY
@@ -18,12 +19,12 @@ struct CourseList: View {
             VStack(spacing: 30.0) {
                 ForEach(courses.indices, id: \.self) { index in
                     GeometryReader { gemomatry in
-                        CourseView(show: $courses[index].show,course: courses[index])
+                        CourseView(show: $courses[index].show, course: courses[index])
                             .offset(y: courses[index].show ? -gemomatry.frame(in: .global).minY : 0)
                     }
                     .frame(height: courses[index].show ? screen.height : 280)
-                .frame(maxWidth: courses[index].show ? .infinity : screen.width - 60)
-                .animation(.easeInOut(duration: 0.6), value: courses[index].show)
+                    .frame(maxWidth: courses[index].show ? .infinity : screen.width - 60)
+                    .animation(.easeInOut(duration: 0.6), value: courses[index].show)
                 }
             }
             .frame(width: screen.width)
@@ -41,6 +42,7 @@ struct CourseList_Previews: PreviewProvider {
 
 struct CourseView: View {
     // MARK: - PROPERTIES
+
     @Binding var show: Bool
     var course: Course
     var backgroundColor = Color(#colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1))
@@ -131,9 +133,7 @@ struct Course: Identifiable {
 }
 
 var courseData = [
-   Course(title: "Prototype Designs in SwiftUI", subtitle: "18 Sections", image: #imageLiteral(resourceName: "Background1"), logo: #imageLiteral(resourceName: "Logo1"), color: #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1), show: false),
-   Course(title: "SwiftUI Advanced", subtitle: "20 Sections", image: #imageLiteral(resourceName: "Card3"), logo: #imageLiteral(resourceName: "Logo1"), color: #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1), show: false),
-   Course(title: "UI Design for Developers", subtitle: "20 Sections", image: #imageLiteral(resourceName: "Card4"), logo: #imageLiteral(resourceName: "Logo3"), color: #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1), show: false)
+    Course(title: "Prototype Designs in SwiftUI", subtitle: "18 Sections", image: #imageLiteral(resourceName: "Background1"), logo: #imageLiteral(resourceName: "Logo1"), color: #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1), show: false),
+    Course(title: "SwiftUI Advanced", subtitle: "20 Sections", image: #imageLiteral(resourceName: "Card3"), logo: #imageLiteral(resourceName: "Logo1"), color: #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1), show: false),
+    Course(title: "UI Design for Developers", subtitle: "20 Sections", image: #imageLiteral(resourceName: "Card4"), logo: #imageLiteral(resourceName: "Logo3"), color: #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1), show: false),
 ]
-
-
