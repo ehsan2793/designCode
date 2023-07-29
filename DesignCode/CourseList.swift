@@ -11,30 +11,41 @@ struct CourseList: View {
     // MARK: - PROPERTIES
 
     @State var courses = courseData
+    @State var active = false
+    @State var activeIndex = -1
 
     // MARK: - BODY
 
     var body: some View {
-        ScrollView(showsIndicators: false) {
-            VStack(spacing: 30.0) {
-                Text("Courses")
-                    .font(.largeTitle)
-                    .bold()
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .padding([.leading, .top], 10)
-                ForEach(courses.indices, id: \.self) { index in
-                    GeometryReader { gemomatry in
-                        CourseView(show: $courses[index].show, course: courses[index])
-                            .offset(y: courses[index].show ? -gemomatry.frame(in: .global).minY : 0)
+        ZStack {
+            Color.black.opacity(active ? 0.5 : 0)
+                .animation(.linear)
+                .edgesIgnoringSafeArea(.all)
+
+            ScrollView(showsIndicators: false) {
+                VStack(spacing: 30.0) {
+                    Text("Courses")
+                        .font(.largeTitle)
+                        .bold()
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding([.leading, .top], 10)
+                        .blur(radius: active ? 20 : 0)
+
+                    ForEach(courses.indices, id: \.self) { index in
+                        GeometryReader { gemomatry in
+                            CourseView(show: $courses[index].show, active: $active, index: index, course: courses[index], activeIndex: $activeIndex)
+                                .offset(y: courses[index].show ? -gemomatry.frame(in: .global).minY : 0)
+                        }
+                        .animation(.easeInOut(duration: 0.6), value: courses[index].show)
+                        .frame(height: 280)
+                        .frame(maxWidth: courses[index].show ? .infinity : screen.width - 60)
+                        .zIndex(self.courses[index].show ? 1 : 0)
                     }
-                    .animation(.easeInOut(duration: 0.6), value: courses[index].show)
-                    .frame(height: 280)
-                    .frame(maxWidth: courses[index].show ? .infinity : screen.width - 60)
-                    .zIndex(self.courses[index].show ? 1 : 0)
                 }
+                .frame(width: screen.width)
+                .statusBarHidden(active ? true : false)
             }
-            .frame(width: screen.width)
-        }
+        } //: ZSTACK
     }
 }
 
@@ -50,7 +61,10 @@ struct CourseView: View {
     // MARK: - PROPERTIES
 
     @Binding var show: Bool
+    @Binding var active: Bool
+    var index: Int
     var course: Course
+    @Binding var activeIndex: Int
 
     // MARK: - BODY
 
@@ -118,11 +132,12 @@ struct CourseView: View {
             .shadow(color: Color(course.color).opacity(0.3), radius: 20, x: 0, y: 20)
             .onTapGesture {
                 show.toggle()
+                active.toggle()
             }
         }
         .frame(height: show ? screen.height : 280)
-//        .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0), value: show)
-        .animation(.easeInOut(duration: 0.6), value: show)
+        .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0), value: show)
+//        .animation(.easeInOut(duration: 0.6), value: show)
         .ignoresSafeArea(.all)
     }
 }
