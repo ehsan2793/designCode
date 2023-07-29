@@ -27,9 +27,10 @@ struct CourseList: View {
                         CourseView(show: $courses[index].show, course: courses[index])
                             .offset(y: courses[index].show ? -gemomatry.frame(in: .global).minY : 0)
                     }
+                    .animation(.easeInOut(duration: 0.6), value: courses[index].show)
                     .frame(height: 280)
                     .frame(maxWidth: courses[index].show ? .infinity : screen.width - 60)
-                    .animation(.easeInOut(duration: 0.6), value: courses[index].show)
+                    .zIndex(self.courses[index].show ? 1 : 0)
                 }
             }
             .frame(width: screen.width)
