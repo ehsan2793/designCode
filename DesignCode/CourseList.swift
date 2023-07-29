@@ -35,8 +35,12 @@ struct CourseList: View {
                         GeometryReader { gemomatry in
                             CourseView(show: $courses[index].show, active: $active, index: index, course: courses[index], activeIndex: $activeIndex)
                                 .offset(y: courses[index].show ? -gemomatry.frame(in: .global).minY : 0)
+                                .opacity(activeIndex != index && self.active ? 0 : 1)
+                                .scaleEffect(activeIndex != index && self.active ? 0.5 : 1)
+                                .offset(x: activeIndex != index && self.active ? screen.width : 0)
                         }
-                        .animation(.easeInOut(duration: 0.6), value: courses[index].show)
+                        .animation(.easeInOut(duration: 0.6), value: courses[index].show || activeIndex == index)
+
                         .frame(height: 280)
                         .frame(maxWidth: courses[index].show ? .infinity : screen.width - 60)
                         .zIndex(self.courses[index].show ? 1 : 0)
@@ -133,10 +137,15 @@ struct CourseView: View {
             .onTapGesture {
                 show.toggle()
                 active.toggle()
+                if show {
+                    activeIndex = index
+                } else {
+                    activeIndex = -1
+                }
             }
         }
         .frame(height: show ? screen.height : 280)
-        .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0), value: show)
+        .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0), value: show || activeIndex != -1)
 //        .animation(.easeInOut(duration: 0.6), value: show)
         .ignoresSafeArea(.all)
     }
