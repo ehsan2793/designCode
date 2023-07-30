@@ -77,7 +77,7 @@ struct CourseView: View {
     var body: some View {
         ZStack(alignment: .top) {
             VStack(alignment: .leading, spacing: 30.0) {
-                Text("Take your SwiftUI app to the App Store with advanced techniques like API data, packages and CMS.")
+                Text("Take your  SwiftUI app to the App Store with advanced techniques like API data, packages and CMS.")
                 Text("About this course")
                     .font(.title)
                     .bold()
@@ -165,6 +165,11 @@ struct CourseView: View {
                 } else {
                     activeIndex = -1
                 }
+            }
+
+            if show {
+                CourseDetail(course: course, show: $show, active: $active, activeIndex: $activeIndex)
+                    .background(Color.white)
             }
         }
         .frame(height: show ? screen.height : 280)

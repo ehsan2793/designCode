@@ -12,6 +12,8 @@ struct CourseDetail: View {
 
     var course: Course
     @Binding var show: Bool
+    @Binding var active: Bool
+    @Binding var activeIndex: Int
 
     // MARK: - BODY
 
@@ -31,9 +33,6 @@ struct CourseDetail: View {
                         Spacer()
 
                         ZStack {
-                            Image(uiImage: course.logo)
-                                .opacity(show ? 0 : 1)
-
                             VStack {
                                 Image(systemName: "xmark")
                                     .font(.system(size: 16, weight: .medium))
@@ -42,7 +41,11 @@ struct CourseDetail: View {
                             .frame(width: 36, height: 36)
                             .background(Color.black)
                             .clipShape(Circle())
-                            .opacity(show ? 1 : 0)
+                            .onTapGesture {
+                                show = false
+                                active = false
+                                activeIndex = -1
+                            }
                         }
                     } //: HSTACK
                     Spacer()
@@ -82,6 +85,6 @@ struct CourseDetail: View {
 
 struct CourseDetail_Previews: PreviewProvider {
     static var previews: some View {
-        CourseDetail(course: courseData[0], show: .constant(true))
+        CourseDetail(course: courseData[0], show: .constant(true), active: .constant(true), activeIndex: .constant(-1))
     }
 }
