@@ -69,6 +69,7 @@ struct CourseView: View {
     var index: Int
     var course: Course
     @Binding var activeIndex: Int
+    @State var activeView = CGSize.zero
 
     // MARK: - BODY
 
@@ -134,6 +135,17 @@ struct CourseView: View {
             .background(Color(course.color))
             .clipShape(RoundedRectangle(cornerRadius: 30, style: .continuous))
             .shadow(color: Color(course.color).opacity(0.3), radius: 20, x: 0, y: 20)
+
+            .gesture(
+                DragGesture()
+                    .onChanged { value in
+                        activeView = value.translation
+                    }
+                    .onEnded { _ in
+                        activeView = .zero
+                    }
+            )
+
             .onTapGesture {
                 show.toggle()
                 active.toggle()
@@ -145,6 +157,8 @@ struct CourseView: View {
             }
         }
         .frame(height: show ? screen.height : 280)
+        .animation(Animation.linear, value: activeView)
+        .scaleEffect(1 - activeView.height / 1000)
         .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0), value: show || activeIndex != -1)
 //        .animation(.easeInOut(duration: 0.6), value: show)
         .ignoresSafeArea(.all)
