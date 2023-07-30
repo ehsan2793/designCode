@@ -168,8 +168,8 @@ struct CourseView: View {
             }
 
             if show {
-                CourseDetail(course: course, show: $show, active: $active, activeIndex: $activeIndex)
-                    .background(Color.white)
+//                CourseDetail(course: course, show: $show, active: $active, activeIndex: $activeIndex)
+//                    .background(Color.white)
             }
         }
         .frame(height: show ? screen.height : 280)
