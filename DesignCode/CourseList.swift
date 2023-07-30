@@ -142,6 +142,11 @@ struct CourseView: View {
                         activeView = value.translation
                     }
                     .onEnded { _ in
+                        if activeView.height > 50 {
+                            show = false
+                            active = false
+                            activeIndex = -1
+                        }
                         activeView = .zero
                     }
             )
@@ -159,6 +164,8 @@ struct CourseView: View {
         .frame(height: show ? screen.height : 280)
         .animation(Animation.linear, value: activeView)
         .scaleEffect(1 - activeView.height / 1000)
+        .rotation3DEffect(Angle(degrees: activeView.height / 10), axis: (x: 0, y: 10.0, z: 0))
+        .hueRotation(Angle(degrees: activeView.height / 10))
         .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0), value: show || activeIndex != -1)
 //        .animation(.easeInOut(duration: 0.6), value: show)
         .ignoresSafeArea(.all)
