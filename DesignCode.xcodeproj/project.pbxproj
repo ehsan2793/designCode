@@ -36,6 +36,7 @@
 		7C7265012A6F6A370094AA7A /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7C7264EB2A6F6A370094AA7A /* OFL.txt */; };
 		7C7265022A6F6A370094AA7A /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7C7264EC2A6F6A370094AA7A /* README.txt */; };
 		7CC7E95C2A6C47B400CCE1B4 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CC7E95B2A6C47B400CCE1B4 /* TabBar.swift */; };
+		7CD62FBE2A76EFA700B9FA77 /* CourseDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CD62FBD2A76EFA700B9FA77 /* CourseDetail.swift */; };
 		7CDC9A2B2A6C88DE00FE4988 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDC9A2A2A6C88DE00FE4988 /* Utils.swift */; };
 		7CDC9A2D2A6D08C600FE4988 /* RingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDC9A2C2A6D08C600FE4988 /* RingView.swift */; };
 		7CDD187A2A70C6AD003FBE43 /* CourseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDD18792A70C6AD003FBE43 /* CourseList.swift */; };
@@ -81,6 +82,7 @@
 		7C7264EC2A6F6A370094AA7A /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		7C7265032A6F6A6B0094AA7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		7CC7E95B2A6C47B400CCE1B4 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		7CD62FBD2A76EFA700B9FA77 /* CourseDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetail.swift; sourceTree = "<group>"; };
 		7CDC9A2A2A6C88DE00FE4988 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		7CDC9A2C2A6D08C600FE4988 /* RingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RingView.swift; sourceTree = "<group>"; };
 		7CDD18792A70C6AD003FBE43 /* CourseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseList.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				7C7264D32A6F661E0094AA7A /* Modifiers.swift */,
 				7CDD18792A70C6AD003FBE43 /* CourseList.swift */,
 				7C30C5D62A6BC21100F3BA16 /* UpdateDetail.swift */,
+				7CD62FBD2A76EFA700B9FA77 /* CourseDetail.swift */,
 				7C703AED2A6A2CF900218D58 /* UpdateList.swift */,
 				7C30C5D82A6BCD6300F3BA16 /* UpdateStore.swift */,
 				7CC7E95B2A6C47B400CCE1B4 /* TabBar.swift */,
@@ -305,6 +308,7 @@
 				7CFF88462A63172D007A6B14 /* ContentView.swift in Sources */,
 				7C30C5D92A6BCD6300F3BA16 /* UpdateStore.swift in Sources */,
 				7CFF88582A635FB6007A6B14 /* BottomCardView.swift in Sources */,
+				7CD62FBE2A76EFA700B9FA77 /* CourseDetail.swift in Sources */,
 				7C30C5D72A6BC21100F3BA16 /* UpdateDetail.swift in Sources */,
 				7CFF88522A632F84007A6B14 /* CardView.swift in Sources */,
 				7CFF88442A63172D007A6B14 /* DesignCodeApp.swift in Sources */,
