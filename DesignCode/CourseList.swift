@@ -19,7 +19,7 @@ struct CourseList: View {
 
     var body: some View {
         ZStack {
-            Color.black.opacity(active ? 0.5 : 0)
+            Color.black.opacity(activeView.height / 500)
                 .animation(.linear)
                 .edgesIgnoringSafeArea(.all)
 
