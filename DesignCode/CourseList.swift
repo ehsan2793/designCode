@@ -13,6 +13,7 @@ struct CourseList: View {
     @State var courses = courseData
     @State var active = false
     @State var activeIndex = -1
+    @State var activeView = CGSize.zero
 
     // MARK: - BODY
 
@@ -33,7 +34,7 @@ struct CourseList: View {
 
                     ForEach(courses.indices, id: \.self) { index in
                         GeometryReader { gemomatry in
-                            CourseView(show: $courses[index].show, active: $active, index: index, course: courses[index], activeIndex: $activeIndex)
+                            CourseView(show: $courses[index].show, active: $active, index: index, course: courses[index], activeIndex: $activeIndex, activeView: $activeView)
                                 .offset(y: courses[index].show ? -gemomatry.frame(in: .global).minY : 0)
                                 .opacity(activeIndex != index && self.active ? 0 : 1)
                                 .scaleEffect(activeIndex != index && self.active ? 0.5 : 1)
@@ -69,7 +70,7 @@ struct CourseView: View {
     var index: Int
     var course: Course
     @Binding var activeIndex: Int
-    @State var activeView = CGSize.zero
+    @Binding var activeView: CGSize
 
     // MARK: - BODY
 
@@ -137,8 +138,11 @@ struct CourseView: View {
             .shadow(color: Color(course.color).opacity(0.3), radius: 20, x: 0, y: 20)
 
             .gesture(
-                DragGesture()
+                show ?
+                    DragGesture()
                     .onChanged { value in
+                        guard value.translation.height < 300 else { return }
+                        guard value.translation.height > 0 else { return }
                         activeView = value.translation
                     }
                     .onEnded { _ in
@@ -149,6 +153,8 @@ struct CourseView: View {
                         }
                         activeView = .zero
                     }
+
+                    : nil
             )
 
             .onTapGesture {
@@ -168,6 +174,25 @@ struct CourseView: View {
         .hueRotation(Angle(degrees: activeView.height / 10))
         .animation(.spring(response: 0.5, dampingFraction: 0.6, blendDuration: 0), value: show || activeIndex != -1)
 //        .animation(.easeInOut(duration: 0.6), value: show)
+        .gesture(
+            show ?
+                DragGesture()
+                .onChanged { value in
+                    guard value.translation.height < 300 else { return }
+                    guard value.translation.height > 0 else { return }
+                    activeView = value.translation
+                }
+                .onEnded { _ in
+                    if activeView.height > 50 {
+                        show = false
+                        active = false
+                        activeIndex = -1
+                    }
+                    activeView = .zero
+                }
+
+                : nil
+        )
         .ignoresSafeArea(.all)
     }
 }
