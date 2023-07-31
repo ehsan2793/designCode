@@ -156,15 +156,18 @@ struct CourseView: View {
 
                     : nil
             )
-
+     
             .onTapGesture {
-                show.toggle()
-                active.toggle()
-                if show {
-                    activeIndex = index
-                } else {
-                    activeIndex = -1
+                withAnimation(Animation.spring()) {
+                    show.toggle()
+                    active.toggle()
+                    if show {
+                        activeIndex = index
+                    } else {
+                        activeIndex = -1
+                    }
                 }
+
             }
 
             if show {

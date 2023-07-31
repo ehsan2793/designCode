@@ -66,6 +66,7 @@ struct MenuView_Previews: PreviewProvider {
 struct MenuRow: View {
     var title: String
     var icon: String
+    var color: UIColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
 
     var body: some View {
         HStack(spacing: 16) {
@@ -73,7 +74,7 @@ struct MenuRow: View {
                 .font(.system(size: 20, weight: .light))
                 .imageScale(.large)
                 .frame(width: 32, height: 32)
-                .foregroundColor(Color(red: 0.69, green: 0.75, blue: 0.83))
+                .foregroundColor(Color(color))
 
             Text(title)
                 .font(.system(size: 20, weight: .bold, design: .default))
