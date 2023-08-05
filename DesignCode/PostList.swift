@@ -10,13 +10,20 @@ import SwiftUI
 struct PostList: View {
     // MARK: - PROPERTIES
 
+    @State var posts: [Post] = []
+
     // MARK: - BODY
 
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            .onAppear {
-                Api().getPosts()
+        List(posts) { post in
+            Text(post.title)
+        }
+        .listStyle(.plain)
+        .onAppear {
+            Api().getPosts { posts in
+                self.posts = posts
             }
+        }
     }
 }
 
