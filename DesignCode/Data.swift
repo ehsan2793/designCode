@@ -17,7 +17,7 @@ struct Post: Codable, Identifiable {
 }
 
 class Api {
-    func getPosts() {
+    func getPosts(completion: @escaping ([Post]) -> Void) {
         guard let url = URL(string: "https://jsonplaceholder.typicode.com/posts") else {
             return
         }
@@ -27,22 +27,11 @@ class Api {
                 print("No data received")
                 return
             }
+
             do {
                 let posts = try JSONDecoder().decode([Post].self, from: data)
-                print(posts)
-
-            } catch let decodingError as DecodingError {
-                switch decodingError {
-                case let .dataCorrupted(context):
-                    print("Data corrupted: \(context.debugDescription)")
-                case let .keyNotFound(key, context):
-                    print("Key '\(key)' not found: \(context.debugDescription)")
-                case let .typeMismatch(type, context):
-                    print("Type '\(type)' mismatch: \(context.debugDescription)")
-                case let .valueNotFound(type, context):
-                    print("Value of type '\(type)' not found: \(context.debugDescription)")
-                @unknown default:
-                    print("Decoding error: \(decodingError.localizedDescription)")
+                DispatchQueue.main.async {
+                    completion(posts)
                 }
             } catch {
                 print("Other error: \(error.localizedDescription)")
