@@ -12,6 +12,8 @@
 		7C6F8AB12A7E95F200AF3888 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6F8AB02A7E95F200AF3888 /* Data.swift */; };
 		7C6F8AB32A7E9BBF00AF3888 /* PostList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6F8AB22A7E9BBF00AF3888 /* PostList.swift */; };
 		7C6F8AB52A7EC5E600AF3888 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6F8AB42A7EC5E600AF3888 /* DataStore.swift */; };
+		7C6F8AB82A8018C900AF3888 /* Contentful in Frameworks */ = {isa = PBXBuildFile; productRef = 7C6F8AB72A8018C900AF3888 /* Contentful */; };
+		7C6F8ABA2A80256200AF3888 /* CourseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6F8AB92A80256200AF3888 /* CourseStore.swift */; };
 		7C703AEA2A6619BC00218D58 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C703AE92A6619BC00218D58 /* Home.swift */; };
 		7C703AEC2A677B7400218D58 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C703AEB2A677B7400218D58 /* HomeView.swift */; };
 		7C703AEE2A6A2CF900218D58 /* UpdateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C703AED2A6A2CF900218D58 /* UpdateList.swift */; };
@@ -60,6 +62,7 @@
 		7C6F8AB02A7E95F200AF3888 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		7C6F8AB22A7E9BBF00AF3888 /* PostList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostList.swift; sourceTree = "<group>"; };
 		7C6F8AB42A7EC5E600AF3888 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		7C6F8AB92A80256200AF3888 /* CourseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseStore.swift; sourceTree = "<group>"; };
 		7C703AE92A6619BC00218D58 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		7C703AEB2A677B7400218D58 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		7C703AED2A6A2CF900218D58 /* UpdateList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateList.swift; sourceTree = "<group>"; };
@@ -109,6 +112,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C6F8AB82A8018C900AF3888 /* Contentful in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +181,7 @@
 				7CFF885B2A64F1D8007A6B14 /* MenuView.swift */,
 				7C703AE92A6619BC00218D58 /* Home.swift */,
 				7C703AEB2A677B7400218D58 /* HomeView.swift */,
+				7C6F8AB92A80256200AF3888 /* CourseStore.swift */,
 				7CDC9A2C2A6D08C600FE4988 /* RingView.swift */,
 				7C7264D32A6F661E0094AA7A /* Modifiers.swift */,
 				7C6F8AB22A7E9BBF00AF3888 /* PostList.swift */,
@@ -232,6 +237,9 @@
 			dependencies = (
 			);
 			name = DesignCode;
+			packageProductDependencies = (
+				7C6F8AB72A8018C900AF3888 /* Contentful */,
+			);
 			productName = DesignCode;
 			productReference = 7CFF88402A63172D007A6B14 /* DesignCode.app */;
 			productType = "com.apple.product-type.application";
@@ -260,6 +268,9 @@
 				Base,
 			);
 			mainGroup = 7CFF88372A63172D007A6B14;
+			packageReferences = (
+				7C6F8AB62A8018C900AF3888 /* XCRemoteSwiftPackageReference "contentful.swift" */,
+			);
 			productRefGroup = 7CFF88412A63172D007A6B14 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -324,6 +335,7 @@
 				7CFF88522A632F84007A6B14 /* CardView.swift in Sources */,
 				7CFF88442A63172D007A6B14 /* DesignCodeApp.swift in Sources */,
 				7CC7E95C2A6C47B400CCE1B4 /* TabBar.swift in Sources */,
+				7C6F8ABA2A80256200AF3888 /* CourseStore.swift in Sources */,
 				7C7264D42A6F661E0094AA7A /* Modifiers.swift in Sources */,
 				7C703AEA2A6619BC00218D58 /* Home.swift in Sources */,
 				7C6F8AB12A7E95F200AF3888 /* Data.swift in Sources */,
@@ -533,6 +545,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7C6F8AB62A8018C900AF3888 /* XCRemoteSwiftPackageReference "contentful.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:contentful/contentful.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7C6F8AB72A8018C900AF3888 /* Contentful */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7C6F8AB62A8018C900AF3888 /* XCRemoteSwiftPackageReference "contentful.swift" */;
+			productName = Contentful;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7CFF88382A63172D007A6B14 /* Project object */;
 }

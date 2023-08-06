@@ -22,6 +22,9 @@ struct CourseList: View {
             Color.black.opacity(activeView.height / 500)
                 .animation(.linear)
                 .edgesIgnoringSafeArea(.all)
+                .onAppear {
+                    getArray()
+                }
 
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 30.0) {

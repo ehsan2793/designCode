@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PostList: View {
-    // MARK: - PROPERTIES
+    // MARK: - PROPERTIES 
 
     @ObservedObject var store = DataStore()
 
