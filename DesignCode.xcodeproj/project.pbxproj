@@ -11,6 +11,7 @@
 		7C30C5D92A6BCD6300F3BA16 /* UpdateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C30C5D82A6BCD6300F3BA16 /* UpdateStore.swift */; };
 		7C6F8AB12A7E95F200AF3888 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6F8AB02A7E95F200AF3888 /* Data.swift */; };
 		7C6F8AB32A7E9BBF00AF3888 /* PostList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6F8AB22A7E9BBF00AF3888 /* PostList.swift */; };
+		7C6F8AB52A7EC5E600AF3888 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6F8AB42A7EC5E600AF3888 /* DataStore.swift */; };
 		7C703AEA2A6619BC00218D58 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C703AE92A6619BC00218D58 /* Home.swift */; };
 		7C703AEC2A677B7400218D58 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C703AEB2A677B7400218D58 /* HomeView.swift */; };
 		7C703AEE2A6A2CF900218D58 /* UpdateList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C703AED2A6A2CF900218D58 /* UpdateList.swift */; };
@@ -58,6 +59,7 @@
 		7C30C5D82A6BCD6300F3BA16 /* UpdateStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateStore.swift; sourceTree = "<group>"; };
 		7C6F8AB02A7E95F200AF3888 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		7C6F8AB22A7E9BBF00AF3888 /* PostList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostList.swift; sourceTree = "<group>"; };
+		7C6F8AB42A7EC5E600AF3888 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		7C703AE92A6619BC00218D58 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		7C703AEB2A677B7400218D58 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		7C703AED2A6A2CF900218D58 /* UpdateList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateList.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				7CDD18792A70C6AD003FBE43 /* CourseList.swift */,
 				7C30C5D62A6BC21100F3BA16 /* UpdateDetail.swift */,
 				7C6F8AB02A7E95F200AF3888 /* Data.swift */,
+				7C6F8AB42A7EC5E600AF3888 /* DataStore.swift */,
 				7CD62FBD2A76EFA700B9FA77 /* CourseDetail.swift */,
 				7C703AED2A6A2CF900218D58 /* UpdateList.swift */,
 				7C30C5D82A6BCD6300F3BA16 /* UpdateStore.swift */,
@@ -312,6 +315,7 @@
 				7CDD187A2A70C6AD003FBE43 /* CourseList.swift in Sources */,
 				7CDC9A2B2A6C88DE00FE4988 /* Utils.swift in Sources */,
 				7CFF88462A63172D007A6B14 /* ContentView.swift in Sources */,
+				7C6F8AB52A7EC5E600AF3888 /* DataStore.swift in Sources */,
 				7C30C5D92A6BCD6300F3BA16 /* UpdateStore.swift in Sources */,
 				7CFF88582A635FB6007A6B14 /* BottomCardView.swift in Sources */,
 				7CD62FBE2A76EFA700B9FA77 /* CourseDetail.swift in Sources */,
