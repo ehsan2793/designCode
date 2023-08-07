@@ -26,7 +26,7 @@ func getArray(id: String, completion: @escaping ([Entry]) -> Void) {
 }
 
 
-//var image1 = #imageLiteral(resourceName: "Card2")
+//var image1 = #imageLiteral(resourceName: "Card5")
 //var logo1 = #imageLiteral(resourceName: "Card5")
 //var color = #colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1)
 class CourseStore: ObservableObject {
@@ -40,7 +40,7 @@ class CourseStore: ObservableObject {
                     title: item.fields["title"] as! String,
                     subtitle: item.fields["subtitle"] as! String,
                     image: #imageLiteral(resourceName: "Card2") ,
-                    logo:  #imageLiteral(resourceName: "Card5"),
+                    logo:  #imageLiteral(resourceName: "Logo1"),
                     color: #colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1),
                     show: false)
                                     
