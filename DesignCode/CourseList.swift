@@ -14,7 +14,7 @@ struct CourseList: View {
     @State var active = false
     @State var activeIndex = -1
     @State var activeView = CGSize.zero
-
+ 
     // MARK: - BODY
 
     var body: some View {
