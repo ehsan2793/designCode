@@ -10,11 +10,12 @@ import SwiftUI
 struct CourseList: View {
     // MARK: - PROPERTIES
 
-    @State var courses = courseData
+//    @State var courses = courseData
     @State var active = false
     @State var activeIndex = -1
     @State var activeView = CGSize.zero
- 
+    @ObservedObject var store = CourseStore()
+
     // MARK: - BODY
 
     var body: some View {
@@ -22,9 +23,6 @@ struct CourseList: View {
             Color.black.opacity(activeView.height / 500)
                 .animation(.linear)
                 .edgesIgnoringSafeArea(.all)
-                .onAppear {
-                    getArray()
-                }
 
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 30.0) {
@@ -35,19 +33,19 @@ struct CourseList: View {
                         .padding([.leading, .top], 10)
                         .blur(radius: active ? 20 : 0)
 
-                    ForEach(courses.indices, id: \.self) { index in
+                    ForEach(store.courses.indices, id: \.self) { index in
                         GeometryReader { gemomatry in
-                            CourseView(show: $courses[index].show, active: $active, index: index, course: courses[index], activeIndex: $activeIndex, activeView: $activeView)
-                                .offset(y: courses[index].show ? -gemomatry.frame(in: .global).minY : 0)
+                            CourseView(show: $store.courses[index].show, active: $active, index: index, course: store.courses[index], activeIndex: $activeIndex, activeView: $activeView)
+                                .offset(y: store.courses[index].show ? -gemomatry.frame(in: .global).minY : 0)
                                 .opacity(activeIndex != index && self.active ? 0 : 1)
                                 .scaleEffect(activeIndex != index && self.active ? 0.5 : 1)
                                 .offset(x: activeIndex != index && self.active ? screen.width : 0)
                         }
-                        .animation(.easeInOut(duration: 0.6), value: courses[index].show || activeIndex == index)
+                        .animation(.easeInOut(duration: 0.6), value: store.courses[index].show || activeIndex == index)
 
                         .frame(height: 280)
-                        .frame(maxWidth: courses[index].show ? .infinity : screen.width - 60)
-                        .zIndex(self.courses[index].show ? 1 : 0)
+                        .frame(maxWidth: store.courses[index].show ? .infinity : screen.width - 60)
+                        .zIndex(self.store.courses[index].show ? 1 : 0)
                     }
                 }
                 .frame(width: screen.width)
@@ -159,7 +157,7 @@ struct CourseView: View {
 
                     : nil
             )
-     
+
             .onTapGesture {
                 withAnimation(Animation.spring()) {
                     show.toggle()
@@ -170,7 +168,6 @@ struct CourseView: View {
                         activeIndex = -1
                     }
                 }
-
             }
 
             if show {
